@@ -1,21 +1,33 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Header from './components/Header/Header'
-import Logo from './components/Header/Logo/Logo'
 import Main from './components/Main/Main'
+import Footer from './components/Footer/Footer'
+import LoadingSpinner from './components/LoadingComponents/LoadingSpinner'
 
 function App() {
-  const [first, setfirst] = useState(0)
-  const btn = () => {
-    if (first === 0) setfirst(1)
-    else {
-      setfirst(0)
+  // ===============Loading Spinner ===============
+  const [loading, setLoading] = useState(true)
+  const [data, setData] = useState(null)
+
+  useEffect(() => {
+    // Simulate async data loading
+    const fetchData = async () => {
+      setLoading(true)
+      const result = await new Promise((res) => setTimeout(() => res('Data loaded'), 2000))
+      setData(result)
+      setLoading(false)
     }
-  }
-  console.log(first)
+
+    fetchData()
+  }, [])
+  // ===============Loading Spinner ===============
+
   return (
-    <div className="w-full h-auto flex flex-row">
-      <Header btn={btn} />
-      <Main value1={first} />
+    <div className="relative w-full h-auto flex flex-row">
+      <Header />
+      {loading && <LoadingSpinner />}
+      {!loading && <Main />}
+      {/* <Footer /> */}
     </div>
   )
 }
