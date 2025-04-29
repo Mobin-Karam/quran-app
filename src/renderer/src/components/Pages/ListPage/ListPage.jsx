@@ -1,5 +1,6 @@
-import React from 'react'
-import SurahList from '../../Main/SurahList/SurahList'
+import React, { useEffect, useState } from 'react'
+import SurahList from './SurahList/SurahList'
+import LoadingSpinner from '../../LoadingComponents/LoadingSpinner'
 
 const ListPage = () => {
   // ============ Loading Spinner ===================
@@ -20,7 +21,7 @@ const ListPage = () => {
   // ============ Loading Spinner ===================
 
   return (
-    <div>
+    <div className='w-full h-screen flex flex-col items-center justify-center'>
       {loading && <LoadingSpinner />}
       {!loading && <SurahList />}
     </div>

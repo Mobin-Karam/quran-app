@@ -23,7 +23,17 @@ const HomePage = () => {
   return (
     <div>
       {loading && <LoadingSpinner />}
-      {!loading && <Logo />}
+      {!loading && (
+        <div className='w-full h-screen flex flex-col items-center justify-center'>
+          {' '}
+          <Logo
+            className={
+              'hover:bg-cyan-100 h-60 cursor-pointer hover:transition-all hover:duration-200 rounded-2xl p-0.5'
+            }
+          />
+          <h1 className="font-bold text-6xl">القرآن الكريم</h1>
+        </div>
+      )}
     </div>
   )
 }

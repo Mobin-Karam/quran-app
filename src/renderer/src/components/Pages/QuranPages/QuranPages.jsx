@@ -3,6 +3,7 @@ import Photos from '../../Main/Photos/Photos.jsx'
 import BackButton from '../../Buttons/BackButton/BackButton.jsx'
 import NextButton from '../../Buttons/NextButton/NextButton.jsx'
 import LoadingSpinner from '../../LoadingComponents/LoadingSpinner.jsx'
+import { Route, Routes } from 'react-router-dom'
 
 const QuranPages = () => {
   const [index, setIndex] = useState(0)
@@ -48,17 +49,26 @@ const QuranPages = () => {
         {loading && <LoadingSpinner />}
         {!loading &&
           Photos.map((src, i) => (
-            <div
-              key={i}
-              className="w-[calc(100%/302)] flex flex-row items-center justify-center overflow-hidden"
-            >
-              <BackButton prev={prev} index={index} />
-              <div className="flex flex-col items-center justify-center pb-10">
-                <img src={src} alt={`Image ${i + 1}`} className="w-full max-h-screen pt-10" />
-                <p className="">{i + 1}</p>
-              </div>
-              <NextButton next={next} index={index} Photos={Photos} visibleCount={visibleCount} />
-            </div>
+            <Routes>
+              <Route path={i} >
+                <div
+                  key={i}
+                  className="w-[calc(100%/302)] flex flex-row items-center justify-center overflow-hidden"
+                >
+                  <BackButton prev={prev} index={index} />
+                  <div className="flex flex-col items-center justify-center pb-10">
+                    <img src={src} alt={`Image ${i + 1}`} className="w-full max-h-screen pt-10" />
+                    <p className="">{i + 1}</p>
+                  </div>
+                  <NextButton
+                    next={next}
+                    index={index}
+                    Photos={Photos}
+                    visibleCount={visibleCount}
+                  />
+                </div>
+              </Route>
+            </Routes>
           ))}
       </div>
     </div>

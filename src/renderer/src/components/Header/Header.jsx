@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 export default function Header({ LogoText }) {
   return (
     <div className="w-40 h-screen flex flex-col items-center justify-start shadow-cyan-800 shadow-2xl p-2 gap-4">
-      <Logo Text={LogoText} />
+      <Logo Text={LogoText} className={"hover:bg-cyan-100 h-12 cursor-pointer hover:transition-all hover:duration-200 rounded-2xl p-0.5"} />
       <Link to="/">
         <Button
           className={
