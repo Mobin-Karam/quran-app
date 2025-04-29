@@ -13,7 +13,7 @@ function App() {
   }
   console.log(first)
   return (
-    <div className="max-w-screen flex flex-col justify-center items-center">
+    <div className="w-full h-auto flex flex-row">
       <Header btn={btn} />
       <Main value1={first} />
     </div>
