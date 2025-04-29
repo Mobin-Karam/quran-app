@@ -1,9 +1,10 @@
 import QuranPages from './QuranPages/QuranPages'
+import SurahList from './SurahList/SurahList'
 
-function Main() {
+function Main({ value1 }) {
   return (
     <div className="w-screen flex flex-row items-center justify-center">
-      <QuranPages />
+      {value1 === 0 ? <SurahList /> : <QuranPages value1={value1} />}
     </div>
   )
 }
