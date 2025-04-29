@@ -34,8 +34,8 @@ const QuranPages = () => {
             className="w-[calc(100%/302)] flex flex-row items-center justify-center overflow-hidden"
           >
             <BackButton prev={prev} index={index} />
-            <div className="">
-              <img src={src} alt={`Image ${i + 1}`} className="w-full max-h-screen" />
+            <div className="flex flex-col items-center justify-center pb-10">
+              <img src={src} alt={`Image ${i + 1}`} className="w-full max-h-screen pt-10" />
               <p className="">{i + 1}</p>
             </div>
             <NextButton next={next} index={index} Photos={Photos} visibleCount={visibleCount} />
